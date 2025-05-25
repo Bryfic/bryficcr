@@ -1,0 +1,510 @@
+:root {
+    /* Color Palette */
+    --primary-blue: #4a75ff; /* Main blue for accents and highlights */
+    --secondary-blue: #00bcd4; /* Lighter blue, often for interactive elements */
+    --dark-blue: #1a237e; /* Darker blue, good for deep text or subtle backgrounds */
+    --text-light: #e0e0e0; /* Light gray for general text readability */
+    --bg-gradient-start: #000080; /* Deep navy blue for background gradient start */
+    --bg-gradient-end: #4169e1;   /* Royal blue for background gradient end */
+    --card-bg: rgba(255, 255, 255, 0.1); /* Semi-transparent white for card backgrounds */
+    --border-color: rgba(255, 255, 255, 0.2); /* Slightly more opaque white for borders */
+}
+
+/* --- Global Resets & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures consistent box model across elements */
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Modern, clean sans-serif font */
+    color: var(--text-light); /* Default text color */
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end)); /* Beautiful blue gradient background */
+    min-height: 100vh; /* Full viewport height */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden; /* Prevents horizontal scrollbars */
+    position: relative; /* Needed for absolute positioning of pseudo-elements/particles */
+}
+
+.logo-icon {
+  width: 120px;   /* Ganti sesuai kebutuhan */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1400px; /* Limits content width for better readability */
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stacks header, main, footer vertically */
+    min-height: 100vh; /* Ensures wrapper fills viewport height */
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+
+  background: linear-gradient(
+    90deg,
+    #ff7e5f,
+    #feb47b,
+    #ff7e5f,
+    #feb47b
+  );
+  background-size: 200% 100%;  /* buat ruang animasi */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
+/* --- Header & Navigation --- */
+.header {
+    width: 100%;
+    padding: 20px 0;
+    z-index: 100; /* Ensures header is above other content */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Spreads logo and nav links */
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff; /* Pure white for logo */
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none; /* Removes default list bullets */
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px; /* Spacing between navigation items */
+}
+
+.nav-links a {
+    color: var(--text-light); /* Default link color */
+    text-decoration: none; /* Removes underline */
+    font-weight: 400;
+    font-size: 1.1rem;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.nav-links a:hover {
+    color: var(--secondary-blue); /* Changes color on hover */
+}
+
+/* --- Main Content & Hero Section --- */
+.main-content {
+    flex-grow: 1; /* Allows main content to take up available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: row; /* Horizontal layout for text and illustration */
+    align-items: center;
+    justify-content: center;
+    gap: 50px; /* Space between text and illustration */
+    width: 100%;
+    padding: 50px 0;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+    text-align: left; /* Text alignment for hero content */
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #fff;
+    /* Gradient text effect */
+    background: linear-gradient(90deg, #a7d9ff, #6290ff);
+    -webkit-background-clip: text; /* Clips background to text shape */
+    -webkit-text-fill-color: transparent; /* Makes text transparent to show background */
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: var(--text-light);
+}
+
+.countdown {
+    display: flex;
+    justify-content: flex-start; /* Aligns countdown items to the left */
+    gap: 30px; /* Space between countdown items */
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.countdown-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 20px 30px;
+    min-width: 120px;
+    text-align: center;
+    backdrop-filter: blur(5px); /* Glassmorphism effect */
+    transition: transform 0.3s ease; /* Smooth transform on hover */
+}
+
+.countdown-item:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.countdown-item small {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.launch-message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary-blue);
+    margin-top: 20px;
+    display: none; /* Hidden by default, shown by JavaScript */
+}
+
+.hero-illustration {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Fixed height for illustration container */
+}
+
+.illustration-placeholder {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    border: 2px dashed var(--border-color);
+    /* --- IMPORTANT: REPLACE WITH YOUR ACTUAL ILLUSTRATION --- */
+    /* Uncomment and update the path to your image */
+    /* background-image: url('../assets/your-illustration-name.png'); */
+    /* background-size: contain; */
+    /* background-repeat: no-repeat; */
+    /* background-position: center; */
+    /* -------------------------------------------------------- */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-out; /* For JS parallax effect */
+}
+
+/* Floating elements within the illustration for subtle animation */
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows mouse events to pass through to the illustration-placeholder */
+}
+
+.elem {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%; /* Default to circle shape */
+    animation: float 6s ease-in-out infinite; /* Applies floating animation */
+    transition: transform 0.2s ease-out; /* For JS parallax effect */
+}
+
+.elem-1 {
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px; /* Square with rounded corners */
+    transform: rotate(20deg);
+}
+.elem-2 {
+    width: 50px;
+    height: 50px;
+    top: 70%;
+    left: 80%;
+    animation-delay: 2s;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+.elem-3 {
+    width: 60px;
+    height: 60px;
+    top: 40%;
+    left: 30%;
+    animation-delay: 4s;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: scale(0.8);
+}
+
+/* Keyframe animation for floating elements */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* --- Features Section --- */
+.features-section {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 80px;
+    padding: 50px 20px;
+    background: var(--card-bg); /* Uses semi-transparent card background */
+    border-radius: 20px;
+    backdrop-filter: blur(10px); /* Stronger blur for this section */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.features-section h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
+    gap: 30px; /* Space between grid items */
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.05); /* Lighter background for individual items */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+.feature-item:hover {
+    transform: translateY(-10px); /* Lifts item on hover */
+    background: rgba(255, 255, 255, 0.1); /* Slightly more opaque background on hover */
+}
+
+.feature-item i {
+    font-size: 3rem;
+    color: var(--secondary-blue);
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.feature-item p {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+/* --- Footer --- */
+.footer {
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--secondary-blue);
+    transform: scale(1.2); /* Enlarges icon on hover */
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7); /* Slightly less opaque text */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column; /* Stacks text and illustration vertically */
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+        max-width: 100%; /* Allows text to take full width */
+    }
+
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+
+    .countdown {
+        justify-content: center; /* Centers countdown items */
+        flex-wrap: wrap; /* Allows items to wrap to next line */
+        gap: 20px;
+    }
+
+    .countdown-item {
+        min-width: 100px;
+        padding: 15px 20px;
+    }
+
+    .countdown-item span {
+        font-size: 2.5rem;
+    }
+
+    .hero-illustration {
+        height: 300px; /* Adjust height for smaller screens */
+        margin-top: 40px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr; /* Single column for features */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stacks logo and nav links */
+    }
+
+    .nav-links {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links li {
+        margin: 0 15px 10px; /* Adjust spacing for wrapped links */
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .countdown-item span {
+        font-size: 2rem;
+    }
+
+    .countdown-item small {
+        font-size: 0.8rem;
+    }
+
+    .features-section h2 {
+        font-size: 2rem;
+    }
+
+    .feature-item h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .countdown-item {
+        width: 100%; /* Makes countdown items fill width on very small screens */
+        min-width: unset; /* Removes minimum width constraint */
+    }
+
+    .social-icon {
+        font-size: 1.2rem;
+        margin: 0 10px;
+    }
+}
+
+/* --- Additional Animation: Background Particles Effect --- */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle dot pattern */
+    background-image: radial-gradient(circle at top left, rgba(255,255,255,0.05) 1px, transparent 1px),
+                      radial-gradient(circle at bottom right, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px; /* Size of the repeating pattern */
+    opacity: 0.7;
+    animation: moveBackground 60s linear infinite; /* Slow, continuous movement */
+    z-index: -1; /* Ensures particles are behind content */
+}
+
+
+
+/* Keyframe animation for moving background particles */
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; } /* Ensures seamless loop with 50px background-size */
+}
